@@ -1,0 +1,41 @@
+pipeline {
+    
+    agent any 
+    stages {
+        stage ('CHeck'){
+            environment {
+                 def a = "Release-2.0.0.yaml"
+
+                    str = a.split('-');
+
+
+            def release = str[1].substring(0,5);
+      }
+            steps{
+                script{
+                   
+                    abc(release);
+                }
+            }
+        }
+    }
+}
+        def abc(String rel){
+    
+                 println rel
+                 
+               
+               
+            sh '''
+            for i in `ls /`
+            do
+            if [ ${i} == $release ];
+            then
+            echo "Hi"
+            else
+            echo "${i}"
+            fi
+            done
+            '''
+   
+        }
