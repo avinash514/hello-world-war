@@ -29,7 +29,7 @@ pipeline {
             sh '''
             for i in `ls /`
             do
-            if [ ${i} == $release ];
+            if [ ${i} == "sys" ];
             then
             echo "Hi"
             else
